@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SocialMedia from "./SocialMedia";
 
 const NavBar = () => {
 	const toggleDarkMode = () => {
@@ -28,6 +29,7 @@ const NavBar = () => {
 					<li className="font-medium text-xl text-darkContent dark:text-lightContent">
 						<Link to="/">Contact</Link>
 					</li>
+					<SocialMedia />
 					<li
 						onClick={toggleDarkMode}
 						className="cursor-pointer dark:text-white"
