@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+	const toggleDarkMode = () => {
+		document.documentElement.classList.toggle("dark");
+	};
 	return (
 		<header className="flex items-center justify-between py-10">
 			<Link to="/">
@@ -24,6 +27,12 @@ const NavBar = () => {
 					</li>
 					<li className="font-medium text-xl text-darkContent dark:text-lightContent">
 						<Link to="/">Contact</Link>
+					</li>
+					<li
+						onClick={toggleDarkMode}
+						className="cursor-pointer dark:text-white"
+					>
+						DarkMode
 					</li>
 				</ul>
 			</nav>
