@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 
 const RootLayout = () => {
 	return (
-		<section>
+		<section className="container">
 			<NavBar />
 			<Outlet />
 		</section>
