@@ -5,7 +5,10 @@ export default {
 		extend: {
 			container: {
 				center: true, // Centers the container
-				padding: "1rem", // Adds default padding to the container
+				padding: {
+					DEFAULT: "1rem",
+					sm: "25rem",
+				},
 				screens: {
 					sm: "100%", // Full width on small screens
 					md: "100%", // Full width on medium screens

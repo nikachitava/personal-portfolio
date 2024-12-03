@@ -19,9 +19,9 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<hr />
+			<hr className="hidden lg:block" />
 
-			<div className="flex items-center justify-between">
+			<div className="hidden items-center justify-between lg:flex">
 				<ul className="flex items-center gap-16 font-DMSans">
 					<li className="font-medium text-lg text-darkContent dark:text-lightContent">
 						<Link to="/">Home</Link>

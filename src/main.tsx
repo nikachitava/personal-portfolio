@@ -17,8 +17,9 @@ createRoot(document.getElementById("root")!).render(
 					<Route path="/" element={<HomePage />} />
 					<Route path="about" element={<AboutPage />} />
 					<Route path="tech-stack" element={<TechStackPage />} />
-					<Route path="project" element={<ProjectsPage />} />
+					<Route path="projects" element={<ProjectsPage />} />
 					<Route path="contact" element={<ContactPage />} />
+					<Route path="*" element={<h1>Page not found</h1>} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

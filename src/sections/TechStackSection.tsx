@@ -18,7 +18,7 @@ const TechStackSection = () => {
 			<h4 className="text-center font-Poppins text-3xl text-darkContent mb-[140px] dark:text-lightContent">
 				Technologies I've been working with recently
 			</h4>
-			<div className="flex items-center flex-wrap gap-10">
+			<div className="flex overflow-auto lg:flex-row items-center lg:flex-wrap lg:justify-between gap-20">
 				<img src={html5} alt="icon" width={131} height={131} />
 				<img src={css3} alt="icon" width={131} height={131} />
 				<img src={tailwindcss} alt="icon" width={131} height={131} />
