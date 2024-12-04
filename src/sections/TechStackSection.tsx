@@ -19,16 +19,76 @@ const TechStackSection = () => {
 				Technologies I've been working with recently
 			</h4>
 			<div className="flex overflow-auto lg:flex-row items-center lg:flex-wrap lg:justify-between gap-20">
-				<img src={html5} alt="icon" width={131} height={131} />
-				<img src={css3} alt="icon" width={131} height={131} />
-				<img src={tailwindcss} alt="icon" width={131} height={131} />
-				<img src={js} alt="icon" width={131} height={131} />
-				<img src={react} alt="icon" width={131} height={131} />
-				<img src={typescript} alt="icon" width={131} height={131} />
-				<img src={nodejs} alt="icon" width={131} height={131} />
-				<img src={mysql} alt="icon" width={131} height={131} />
-				<img src={mongodb} alt="icon" width={131} height={131} />
-				<img src={git} alt="icon" width={131} height={131} />
+				<img
+					src={html5}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={css3}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={tailwindcss}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={js}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={react}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={typescript}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={nodejs}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={mysql}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={mongodb}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
+				<img
+					src={git}
+					alt="icon"
+					width={131}
+					height={131}
+					loading="lazy"
+				/>
 			</div>
 		</section>
 	);

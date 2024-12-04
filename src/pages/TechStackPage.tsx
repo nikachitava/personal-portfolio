@@ -1,5 +1,7 @@
+import TechStackSection from "../sections/TechStackSection";
+
 const TechStackPage = () => {
-	return <div>TechStackPage</div>;
+	return <TechStackSection />;
 };
 
 export default TechStackPage;

@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import SocialMedia from "./SocialMedia";
+import { CiLight } from "react-icons/ci";
+import { FaMoon } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
+	const [isDarkMode, setIsDarkMode] = useState(false);
+
 	const toggleDarkMode = () => {
 		document.documentElement.classList.toggle("dark");
+		setIsDarkMode(!isDarkMode); // Update state after toggling
 	};
+
+	useEffect(() => {
+		setIsDarkMode(document.documentElement.classList.contains("dark"));
+	}, []);
 	return (
 		<header className="container flex items-center justify-between py-10 relative">
 			<Link to="/">
@@ -34,7 +44,11 @@ const NavBar = () => {
 						onClick={toggleDarkMode}
 						className="cursor-pointer dark:text-white"
 					>
-						DarkMode
+						{isDarkMode ? (
+							<CiLight size={30} />
+						) : (
+							<FaMoon size={30} />
+						)}
 					</li>
 				</ul>
 			</nav>
