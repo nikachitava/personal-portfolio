@@ -29,6 +29,9 @@ export default {
 				buttonText: "#018C0F",
 				buttonSuccess: "#D7FFE0",
 			},
+			boxShadow: {
+				"custom-blur": "2px 2px 100px 0 rgba(0, 0, 0, 0.2)",
+			},
 		},
 	},
 	plugins: [],

@@ -40,7 +40,7 @@ const Footer = () => {
 					</li>
 				</ul>
 				<p className="text-heading dark:text-lightContent font-Poppins text-lg">
-					Designed and built by{" "}
+					Designed by{" "}
 					<Link
 						to={
 							"https://www.figma.com/design/14VM8AVRDUs5KrNzenEMed/Developer-Portfolio-Design-(Community)?node-id=14-11&node-type=frame&t=WZMFgYSuGANKLODA-0"
