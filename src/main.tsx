@@ -8,12 +8,14 @@ import TechStackPage from "./pages/TechStackPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import RootLayout from "./RootLayout";
-import { ThemeProvider } from "./context/theme-provider";
+import AdminDashboardLayout from "./AdminDashboardLayout";
+import HomePageDashboard from "./pages/HomePageDashboard";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<BrowserRouter>
 			<Routes>
+				{/* Root  Layout */}
 				<Route element={<RootLayout />}>
 					<Route path="/" element={<HomePage />} />
 					<Route path="about" element={<AboutPage />} />
@@ -21,6 +23,11 @@ createRoot(document.getElementById("root")!).render(
 					<Route path="projects" element={<ProjectsPage />} />
 					<Route path="contact" element={<ContactPage />} />
 					<Route path="*" element={<h1>Page not found</h1>} />
+				</Route>
+
+				{/* Admin Dashboard Layout */}
+				<Route element={<AdminDashboardLayout />}>
+					<Route path="/admin" element={<HomePageDashboard />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
