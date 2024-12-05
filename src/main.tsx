@@ -8,6 +8,7 @@ import TechStackPage from "./pages/TechStackPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import RootLayout from "./RootLayout";
+import { ThemeProvider } from "./context/theme-provider";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
