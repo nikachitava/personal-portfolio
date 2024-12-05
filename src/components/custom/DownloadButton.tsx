@@ -1,4 +1,4 @@
-import { IDownloadButtonProps } from "../types/IDownloadButtonProps";
+import { IDownloadButtonProps } from "../../types/IDownloadButtonProps";
 
 const DownloadButton: React.FC<IDownloadButtonProps> = ({ path, title }) => {
 	return (

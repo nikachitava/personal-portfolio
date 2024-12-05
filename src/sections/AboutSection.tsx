@@ -1,4 +1,4 @@
-import DownloadButton from "../components/DownloadButton";
+import DownloadButton from "../components/custom/DownloadButton";
 
 const AboutSection = () => {
 	return (

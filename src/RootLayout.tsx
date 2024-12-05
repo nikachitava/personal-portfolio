@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
-import BottomTabNav from "./components/BottomTabNav";
+import Footer from "./components/custom/Footer";
+import NavBar from "./components/custom/NavBar";
+import BottomTabNav from "./components/custom/BottomTabNav";
 
 const RootLayout = () => {
 	return (
