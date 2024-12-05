@@ -10,26 +10,29 @@ import ContactPage from "./pages/ContactPage";
 import RootLayout from "./RootLayout";
 import AdminDashboardLayout from "./AdminDashboardLayout";
 import HomePageDashboard from "./pages/HomePageDashboard";
+import { ThemeProvider } from "./context/theme-provider";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<BrowserRouter>
-			<Routes>
-				{/* Root  Layout */}
-				<Route element={<RootLayout />}>
-					<Route path="/" element={<HomePage />} />
-					<Route path="about" element={<AboutPage />} />
-					<Route path="tech-stack" element={<TechStackPage />} />
-					<Route path="projects" element={<ProjectsPage />} />
-					<Route path="contact" element={<ContactPage />} />
-					<Route path="*" element={<h1>Page not found</h1>} />
-				</Route>
+		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+			<BrowserRouter>
+				<Routes>
+					{/* Root  Layout */}
+					<Route element={<RootLayout />}>
+						<Route path="/" element={<HomePage />} />
+						<Route path="about" element={<AboutPage />} />
+						<Route path="tech-stack" element={<TechStackPage />} />
+						<Route path="projects" element={<ProjectsPage />} />
+						<Route path="contact" element={<ContactPage />} />
+						<Route path="*" element={<h1>Page not found</h1>} />
+					</Route>
 
-				{/* Admin Dashboard Layout */}
-				<Route element={<AdminDashboardLayout />}>
-					<Route path="/admin" element={<HomePageDashboard />} />
-				</Route>
-			</Routes>
-		</BrowserRouter>
+					{/* Admin Dashboard Layout */}
+					<Route element={<AdminDashboardLayout />}>
+						<Route path="/admin" element={<HomePageDashboard />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</ThemeProvider>
 	</StrictMode>
 );
