@@ -9,3 +9,10 @@
 		@apply bg-gradient-to-r from-[#13B0F5] to-[#E70FAA] text-transparent bg-clip-text;
 	}
 }
+
+@layer base {
+  :root {
+
+		--radius: 0.5rem
+	}
+}
