@@ -11,6 +11,10 @@ import RootLayout from "./RootLayout";
 import AdminDashboardLayout from "./AdminDashboardLayout";
 import HomePageDashboard from "./pages/HomePageDashboard";
 import { ThemeProvider } from "./context/theme-provider";
+import AdminProtectedRoute from "./components/custom/AdminProtectedRoute";
+import AuthAdminForm from "./components/custom/AuthAdminForm";
+
+const isAuthenticated = false;
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
@@ -29,7 +33,17 @@ createRoot(document.getElementById("root")!).render(
 
 					{/* Admin Dashboard Layout */}
 					<Route element={<AdminDashboardLayout />}>
-						<Route path="/admin" element={<HomePageDashboard />} />
+						<Route path="/admin-auth" element={<AuthAdminForm />} />
+						<Route
+							path="admin"
+							element={
+								<AdminProtectedRoute
+									isAuthenticated={isAuthenticated}
+								>
+									<HomePageDashboard />
+								</AdminProtectedRoute>
+							}
+						/>
 					</Route>
 				</Routes>
 			</BrowserRouter>
