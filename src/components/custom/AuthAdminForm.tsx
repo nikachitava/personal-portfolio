@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import CustomFormField from "./CustomFormField";
+import { useAxios } from "@/utils/useAxios";
 
 const formSchema = z.object({
 	email: z.string().min(2, {
@@ -24,8 +25,21 @@ const AuthAdminForm = () => {
 		},
 	});
 
-	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		console.log(values);
+	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+		try {
+			const response = await useAxios.post("/admin/auth", values);
+
+			console.log("axios response", response.data);
+		} catch (error: any) {
+			if (error.response.status === 401) {
+				form.setError("password", {
+					type: "server",
+					message: error.response.data.message,
+				});
+			} else {
+				console.error("Unexpected error:", error);
+			}
+		}
 	};
 
 	return (
