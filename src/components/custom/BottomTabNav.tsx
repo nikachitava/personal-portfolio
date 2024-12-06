@@ -41,8 +41,8 @@ const BottomTabNav = () => {
 
 	return (
 		<div className="lg:hidden flex items-center justify-center">
-			<div className="fixed py-5 px-10 bg-lightContent  dark:dark-white rounded-3xl shadow-2xl bottom-5 animate__animated animate__zoomIn">
-				<div className="flex items-center justify-between gap-20">
+			<div className="min-w-[70%] fixed py-5 px-10 bg-lightContent dark:dark-white rounded-3xl shadow-2xl bottom-5 animate__animated animate__zoomIn">
+				<div className="flex items-center justify-between gap-5">
 					<Link to={"/"}>
 						{activePage === "home" ? (
 							<FaHome size={32} />
