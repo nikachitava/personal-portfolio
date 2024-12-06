@@ -8,11 +8,13 @@
 	.text-gradient {
 		@apply bg-gradient-to-r from-[#13B0F5] to-[#E70FAA] text-transparent bg-clip-text;
 	}
+	.admin-menu-li-style {
+		@apply flex items-center gap-4 py-2 px-4 bg-darkMode text-white dark:bg-gray-300 dark:text-[#111827] rounded-md   hover:bg-darkContent hover:text-black hover:dark:bg-transparent hover:dark:text-white cursor-pointer;
+	}
 }
 
 @layer base {
-  :root {
-
-		--radius: 0.5rem
+	:root {
+		--radius: 0.5rem;
 	}
 }

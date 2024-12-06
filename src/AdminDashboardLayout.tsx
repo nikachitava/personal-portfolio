@@ -6,7 +6,7 @@ const AdminDashboardLayout = () => {
 	return (
 		<AdminAuthContextProvider>
 			<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-				<section className="min-h-screen flex items-center justify-center">
+				<section>
 					<Outlet />
 				</section>
 			</ThemeProvider>

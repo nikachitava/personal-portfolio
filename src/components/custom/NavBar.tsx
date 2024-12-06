@@ -2,19 +2,12 @@ import { Link } from "react-router-dom";
 import SocialMedia from "./SocialMedia";
 import { CiLight } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { ToggleDarkModeContext } from "@/context/ToggleDarkModeContext";
 
 const NavBar = () => {
-	const [isDarkMode, setIsDarkMode] = useState(false);
+	const { toggleDarkMode, isDarkMode } = useContext(ToggleDarkModeContext);
 
-	const toggleDarkMode = () => {
-		document.documentElement.classList.toggle("dark");
-		setIsDarkMode(!isDarkMode); // Update state after toggling
-	};
-
-	useEffect(() => {
-		setIsDarkMode(document.documentElement.classList.contains("dark"));
-	}, []);
 	return (
 		<header className="container flex items-center justify-between py-10 relative">
 			<Link to="/">

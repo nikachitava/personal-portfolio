@@ -31,6 +31,7 @@ export default {
 			},
 			boxShadow: {
 				"custom-blur": "2px 2px 100px 0 rgba(0, 0, 0, 0.2)",
+				"new-blur": "2px 2px 10px 0 rgba(0, 0, 0, 0.8)",
 			},
 			borderRadius: {
 				lg: "var(--radius)",

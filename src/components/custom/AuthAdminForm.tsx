@@ -45,30 +45,32 @@ const AuthAdminForm = () => {
 	};
 
 	return (
-		<Form {...form}>
-			<form
-				onSubmit={form.handleSubmit(onSubmit)}
-				className="space-y-8 text-heading min-w-[400px] font-DMSans dark:text-solidHeadingDarkMode"
-			>
-				<h1 className="font-Poppins text-center text-2xl text-heading font-bold dark:text-solidHeadingDarkMode">
-					Admin Authorization
-				</h1>
-				<CustomFormField
-					control={form.control}
-					name="email"
-					label="Email"
-				/>
-				<CustomFormField
-					control={form.control}
-					name="password"
-					label="Password"
-					type="password"
-				/>
-				<Button type="submit" className="w-full">
-					Submit
-				</Button>
-			</form>
-		</Form>
+		<div className="min-h-screen flex items-center justify-center">
+			<Form {...form}>
+				<form
+					onSubmit={form.handleSubmit(onSubmit)}
+					className="space-y-8 text-heading min-w-[400px] font-DMSans dark:text-solidHeadingDarkMode"
+				>
+					<h1 className="font-Poppins text-center text-2xl text-heading font-bold dark:text-solidHeadingDarkMode">
+						Admin Authorization
+					</h1>
+					<CustomFormField
+						control={form.control}
+						name="email"
+						label="Email"
+					/>
+					<CustomFormField
+						control={form.control}
+						name="password"
+						label="Password"
+						type="password"
+					/>
+					<Button type="submit" className="w-full">
+						Submit
+					</Button>
+				</form>
+			</Form>
+		</div>
 	);
 };
 

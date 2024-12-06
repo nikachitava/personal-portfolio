@@ -10,13 +10,13 @@ import ContactPage from "./pages/ContactPage";
 import RootLayout from "./RootLayout";
 import AdminDashboardLayout from "./AdminDashboardLayout";
 import HomePageDashboard from "./pages/HomePageDashboard";
-import { ThemeProvider } from "./context/theme-provider";
 import AdminProtectedRoute from "./components/custom/AdminProtectedRoute";
 import AuthAdminForm from "./components/custom/AuthAdminForm";
+import ToggleDarkModeProvider from "./context/ToggleDarkModeContext";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+		<ToggleDarkModeProvider>
 			<BrowserRouter>
 				<Routes>
 					{/* Root  Layout */}
@@ -43,6 +43,6 @@ createRoot(document.getElementById("root")!).render(
 					</Route>
 				</Routes>
 			</BrowserRouter>
-		</ThemeProvider>
+		</ToggleDarkModeProvider>
 	</StrictMode>
 );
