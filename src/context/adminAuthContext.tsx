@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const ADMIN_AUTH_DEFAULT_VALUES: IAdminAuthContextType = {
 	isAuthenticated: false,
 	authAdmin: async () => {},
+	adminLogOut: async () => {},
 };
 
 export const adminAuthContext = createContext<IAdminAuthContextType>(
@@ -37,8 +38,19 @@ const AdminAuthContextProvider: React.FC<{ children: ReactNode }> = ({
 		}
 	};
 
+	const adminLogOut = async () => {
+		try {
+			localStorage.removeItem("authToken");
+			navigate("/");
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
-		<adminAuthContext.Provider value={{ isAuthenticated, authAdmin }}>
+		<adminAuthContext.Provider
+			value={{ isAuthenticated, authAdmin, adminLogOut }}
+		>
 			{children}
 		</adminAuthContext.Provider>
 	);
