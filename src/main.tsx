@@ -14,8 +14,6 @@ import { ThemeProvider } from "./context/theme-provider";
 import AdminProtectedRoute from "./components/custom/AdminProtectedRoute";
 import AuthAdminForm from "./components/custom/AuthAdminForm";
 
-const isAuthenticated = false;
-
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -37,9 +35,7 @@ createRoot(document.getElementById("root")!).render(
 						<Route
 							path="admin"
 							element={
-								<AdminProtectedRoute
-									isAuthenticated={isAuthenticated}
-								>
+								<AdminProtectedRoute>
 									<HomePageDashboard />
 								</AdminProtectedRoute>
 							}
