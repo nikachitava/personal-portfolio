@@ -16,7 +16,9 @@ export const adminAuthContext = createContext<IAdminAuthContextType>(
 const AdminAuthContextProvider: React.FC<{ children: ReactNode }> = ({
 	children,
 }) => {
-	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const [isAuthenticated, setIsAuthenticated] = useState(
+		localStorage.getItem("authToken") ? true : false
+	);
 
 	const navigate = useNavigate();
 
