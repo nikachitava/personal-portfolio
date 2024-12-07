@@ -17,7 +17,7 @@ const AdminAsideMenu = () => {
 
 	return (
 		<div>
-			<aside className="w-full lg:w-[500px] lg:shadow-new-blur h-screen dark:bg-darkMode p-4">
+			<aside className="fixed w-full lg:w-[450px] lg:shadow-new-blur h-screen dark:bg-darkMode p-4">
 				<div className="flex justify-between items-center">
 					<Link to="/">
 						<h1 className="font-Poppins text-2xl font-bold text-gradient">
