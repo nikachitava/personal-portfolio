@@ -18,3 +18,9 @@
 		--radius: 0.5rem;
 	}
 }
+
+@layer base {
+	.animate_img {
+		@apply animate-scroll;
+	}
+}

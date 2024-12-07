@@ -13,7 +13,7 @@ const HeroSection = () => {
 				src="/images/nc_icon.jpg"
 				alt="image"
 				loading="lazy"
-				className="hidden lg:block rounded-full w-1/4 h-auto"
+				className="hidden lg:block rounded-full w-1/4 h-auto animate_img"
 			/>
 		</section>
 	);

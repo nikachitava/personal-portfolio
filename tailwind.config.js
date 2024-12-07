@@ -38,6 +38,16 @@ export default {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+			keyframes: {
+				scroll: {
+					"0%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-10px)" },
+					"100%": { transform: "translateY(0)" },
+				},
+			},
+			animation: {
+				scroll: "scroll 2s ease-in-out infinite",
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
