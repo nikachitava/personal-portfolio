@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoBriefcase } from "react-icons/io5";
 
@@ -7,21 +7,23 @@ import { IoSettingsOutline } from "react-icons/io5";
 
 import { IoMdExit } from "react-icons/io";
 import ModeToggle from "@/components/custom/ModeToggle";
+import { adminAuthContext } from "@/context/adminAuthContext";
+import { Link } from "react-router-dom";
+import { AdminActiveMenuContext } from "@/context/AdminActiveMenuContext";
 
-const HomePageDashboard = () => {
-	const [activeMenu, setActiveMenu] = useState("projects");
-
-	const changeActiveMenu = (menuName: string) => {
-		setActiveMenu(menuName);
-	};
+const AdminAsideMenu = () => {
+	const { activeMenu, changeActiveMenu } = useContext(AdminActiveMenuContext);
+	const { adminLogOut } = useContext(adminAuthContext);
 
 	return (
 		<div>
 			<aside className="w-full lg:w-[500px] lg:shadow-new-blur h-screen dark:bg-darkMode p-4">
 				<div className="flex justify-between items-center">
-					<h1 className="font-Poppins text-2xl font-bold text-gradient">
-						NC18
-					</h1>
+					<Link to="/">
+						<h1 className="font-Poppins text-2xl font-bold text-gradient">
+							NC18
+						</h1>
+					</Link>
 					<ModeToggle />
 				</div>
 				<ul className="font-DMSans space-y-4 mt-20">
@@ -59,7 +61,7 @@ const HomePageDashboard = () => {
 							Settings
 						</span>
 					</li>
-					<li className="admin-menu-li-style">
+					<li className="admin-menu-li-style" onClick={adminLogOut}>
 						<IoMdExit />
 						Log Out
 					</li>
@@ -69,4 +71,4 @@ const HomePageDashboard = () => {
 	);
 };
 
-export default HomePageDashboard;
+export default AdminAsideMenu;

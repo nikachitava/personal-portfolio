@@ -5,14 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import TechStackPage from "./pages/TechStackPage";
-import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import RootLayout from "./RootLayout";
 import AdminDashboardLayout from "./AdminDashboardLayout";
-import HomePageDashboard from "./pages/HomePageDashboard";
+import HomePageDashboard from "./pages/admin/HomePageDashboard";
 import AdminProtectedRoute from "./components/custom/AdminProtectedRoute";
 import AuthAdminForm from "./components/custom/AuthAdminForm";
 import ToggleDarkModeProvider from "./context/ToggleDarkModeContext";
+import ProjectsPage from "./pages/ProjectsPage";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
@@ -26,7 +26,6 @@ createRoot(document.getElementById("root")!).render(
 						<Route path="tech-stack" element={<TechStackPage />} />
 						<Route path="projects" element={<ProjectsPage />} />
 						<Route path="contact" element={<ContactPage />} />
-						<Route path="*" element={<h1>Page not found</h1>} />
 					</Route>
 
 					{/* Admin Dashboard Layout */}
@@ -39,8 +38,9 @@ createRoot(document.getElementById("root")!).render(
 									<HomePageDashboard />
 								</AdminProtectedRoute>
 							}
-						/>
+						></Route>
 					</Route>
+					<Route path="*" element={<h1>Page not found</h1>} />
 				</Routes>
 			</BrowserRouter>
 		</ToggleDarkModeProvider>
