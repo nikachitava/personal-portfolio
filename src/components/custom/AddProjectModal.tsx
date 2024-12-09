@@ -9,17 +9,23 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import CustomFormField from "./CustomFormField";
 import CustomTextArea from "./CustomTextArea";
+import uploadImageToFirebase from "@/firebase/uploadImageToFirebase";
+import { useNavigate } from "react-router-dom";
+import { useAxios } from "@/utils/useAxios";
 
 const formSchema = z.object({
 	name: z.string().min(2, {
 		message: "Name must be at least 2 characters.",
 	}),
+
 	tech_stack: z.string().min(2, {
 		message: "Tech Stack must be at least 2 characters.",
 	}),
+
 	description: z
 		.string()
 		.min(10, { message: "Password must be at least 10 characters." }),
+
 	github_link: z.string().min(2, {
 		message: "Github link must be at least 2 characters.",
 	}),
@@ -27,12 +33,14 @@ const formSchema = z.object({
 	live_link: z.string().min(2, {
 		message: "Live link must be at least 2 characters.",
 	}),
-	images: z.any(),
+	image: z.any(),
 });
 
 const AddProjectModal = () => {
 	const { toggleModal } = useContext(ModalContext);
 	const [imagesPreview, setImagesPreview] = useState<string[] | null>(null);
+
+	const navigate = useNavigate();
 
 	const handleImagesChange = (files: FileList | null) => {
 		if (files) {
@@ -52,12 +60,36 @@ const AddProjectModal = () => {
 			tech_stack: "",
 			github_link: "",
 			live_link: "",
-			images: "",
+			image: [""],
 		},
 	});
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		console.log(values);
+		try {
+			const imagesUrl: string[] = [];
+
+			if (values.image) {
+				for (const file of values.image) {
+					const downloadUrl = await uploadImageToFirebase(file);
+					imagesUrl.push(downloadUrl);
+				}
+			}
+
+			const payload = {
+				name: values.name,
+				description: values.description,
+				tech_stack: values.tech_stack,
+				github_link: values.github_link,
+				live_link: values.live_link,
+				image: imagesUrl,
+			};
+
+			await useAxios.post("/projects/addproject", payload);
+			toggleModal();
+			navigate("/admin");
+		} catch (error) {
+			console.error("Error creating project:", error);
+		}
 	};
 
 	return (
@@ -112,7 +144,7 @@ const AddProjectModal = () => {
 							<div>
 								<CustomFormField
 									control={form.control}
-									name="images"
+									name="image"
 									label="Image"
 									type="file"
 									placeholder="Vehicle Images"
@@ -132,7 +164,7 @@ const AddProjectModal = () => {
 									</div>
 								)}
 							</div>
-							<Button type="submit" className="w-full">
+							<Button type="submit" className="w-full h-12">
 								Submit
 							</Button>
 						</form>
