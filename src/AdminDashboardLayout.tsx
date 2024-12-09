@@ -5,13 +5,13 @@ import ModalContextProvider from "./context/ModalContext";
 
 const AdminDashboardLayout = () => {
 	return (
-		<AdminAuthContextProvider>
-			<ModalContextProvider>
+		<ModalContextProvider>
+			<AdminAuthContextProvider>
 				<AdminActiveMenuContextProvider>
 					<Outlet />
 				</AdminActiveMenuContextProvider>
-			</ModalContextProvider>
-		</AdminAuthContextProvider>
+			</AdminAuthContextProvider>
+		</ModalContextProvider>
 	);
 };
 

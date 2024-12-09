@@ -33,7 +33,7 @@ const CustomFormField = ({
 			control={control}
 			name={name}
 			render={({ field }) => (
-				<FormItem>
+				<FormItem className="w-full">
 					<FormLabel>{label}</FormLabel>
 					<FormControl>
 						{type === "file" ? (
