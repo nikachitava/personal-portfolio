@@ -24,7 +24,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 				<h1 className="font-Poppins text-2xl font-medium text-black dark:text-solidHeadingDarkMode">
 					{name}
 				</h1>
-				<p className="font-Poppins text-lg text-darkContent dark:text-solidHeadingDarkMode">
+				<p className="font-Poppins text-lg text-darkContent dark:text-solidHeadingDarkMode break-words">
 					{description}
 				</p>
 				<p className="font-Poppins text-heading dark:text-solidHeadingDarkMode">
