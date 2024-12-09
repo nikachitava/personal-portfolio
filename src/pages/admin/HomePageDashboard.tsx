@@ -1,5 +1,6 @@
 import AddProjectModal from "@/components/custom/AddProjectModal";
 import AdminAsideMenu from "@/components/custom/AdminAsideMenu";
+import AdminBottomTab from "@/components/custom/AdminBottomTab";
 import { AdminActiveMenuContext } from "@/context/AdminActiveMenuContext";
 import { ModalContext } from "@/context/ModalContext";
 import ProjectsSection from "@/sections/admin/ProjectsSection";
@@ -11,7 +12,8 @@ const HomePageDashboard = () => {
 	const { isModalOpen } = useContext(ModalContext);
 
 	return (
-		<div className="flex h-screen ">
+		<div className="flex flex-col lg:flex-row h-screen ">
+			<AdminBottomTab />
 			{isModalOpen && <AddProjectModal />}
 			<div className="w-full lg:w-[450px]">
 				<AdminAsideMenu />

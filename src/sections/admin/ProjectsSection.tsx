@@ -8,7 +8,7 @@ const ProjectsSection = () => {
 
 	return (
 		<section className="relative space-y-28 animate__animated animate__fadeInDown mt-10">
-			<h1 className="text-center text-heading uppercase font-medium font-Poppins text-5xl leading-6 mb-10 dark:text-solidHeadingDarkMode">
+			<h1 className="text-center break-words text-heading uppercase font-medium font-Poppins text-lg lg:text-5xl  mb-10 dark:text-solidHeadingDarkMode">
 				Your Recent Projects
 			</h1>
 			<div className="text-right">
