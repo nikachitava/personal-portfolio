@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 export const ToggleDarkModeContext = createContext({
 	isDarkMode: false,
@@ -14,12 +14,12 @@ const ToggleDarkModeProvider: React.FC<{ children: ReactNode }> = ({
 
 	const toggleDarkMode = () => {
 		document.documentElement.classList.toggle("dark");
-		setIsDarkMode(!isDarkMode); // Update state after toggling
+		setIsDarkMode(!isDarkMode);
 	};
 
-	// useEffect(() => {
-	// 	setIsDarkMode(document.documentElement.classList.contains("dark"));
-	// }, []);
+	useEffect(() => {
+		setIsDarkMode(document.documentElement.classList.contains("dark"));
+	}, []);
 
 	return (
 		<ToggleDarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

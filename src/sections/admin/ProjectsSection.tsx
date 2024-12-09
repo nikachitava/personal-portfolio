@@ -14,6 +14,7 @@ const ProjectsSection = () => {
 				</Button>
 			</div>
 			<div className="flex flex-wrap justify-between gap-10">
+				{/* <ProjectCard />
 				<ProjectCard />
 				<ProjectCard />
 				<ProjectCard />
@@ -21,8 +22,7 @@ const ProjectsSection = () => {
 				<ProjectCard />
 				<ProjectCard />
 				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
+				<ProjectCard /> */}
 			</div>
 		</section>
 	);
