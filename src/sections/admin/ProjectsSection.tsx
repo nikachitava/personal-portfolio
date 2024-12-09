@@ -1,10 +1,30 @@
+import ProjectCard from "@/components/custom/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { ModalContext } from "@/context/ModalContext";
-import { useContext } from "react";
+import { IProjectCardProps } from "@/types/IProjectCardProps";
+import { useAxios } from "@/utils/useAxios";
+import { useContext, useEffect, useState } from "react";
 import { MdAdd } from "react-icons/md";
 
 const ProjectsSection = () => {
 	const { toggleModal } = useContext(ModalContext);
+
+	const [projects, setProjects] = useState<IProjectCardProps[] | null>(null);
+
+	const fetchProjects = async () => {
+		try {
+			const fetchedProjects = await useAxios.get("/projects");
+			setProjects(fetchedProjects.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	console.log(projects);
+
+	useEffect(() => {
+		fetchProjects();
+	}, []);
 
 	return (
 		<section className="relative space-y-28 animate__animated animate__fadeInDown mt-10">
@@ -20,15 +40,20 @@ const ProjectsSection = () => {
 				</Button>
 			</div>
 			<div className="flex flex-wrap justify-between gap-10">
-				{/* <ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard /> */}
+				{projects ? (
+					projects.map((project) => (
+						<ProjectCard
+							image={project.image}
+							name={project.name}
+							description={project.description}
+							tech_stack={project.tech_stack}
+							github_link={project.github_link}
+							live_link={project.live_link}
+						/>
+					))
+				) : (
+					<h1>You dont have project added </h1>
+				)}
 			</div>
 		</section>
 	);

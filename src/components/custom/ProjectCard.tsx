@@ -1,4 +1,5 @@
 import { IProjectCardProps } from "@/types/IProjectCardProps";
+import { Link } from "react-router-dom";
 
 const ProjectCard: React.FC<IProjectCardProps> = ({
 	_id,
@@ -35,15 +36,19 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 				<div className="flex items-center justify-between">
 					<div className="flex items-center gap-3">
 						<img src="/images/icons/linkicon.svg" alt="link_icon" />
-						<p className="font-Poppins text-black underline dark:text-white">
-							{live_link}
-						</p>
+						<Link to={live_link}>
+							<p className="font-Poppins text-black underline dark:text-white">
+								Live Preview
+							</p>
+						</Link>
 					</div>
 					<div className="flex items-center gap-3">
 						<img src="/images/icons/git2.svg" alt="link_icon" />
-						<p className="font-Poppins text-black underline dark:text-white">
-							{github_link}
-						</p>
+						<Link to={github_link}>
+							<p className="font-Poppins text-black underline dark:text-white">
+								Github Code
+							</p>
+						</Link>
 					</div>
 				</div>
 			</div>
