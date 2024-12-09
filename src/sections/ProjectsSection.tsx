@@ -16,7 +16,7 @@ const ProjectsSection = () => {
 				{projects ? (
 					projects.map((project) => (
 						<ProjectCard
-                        key={_id={project._id}}
+							key={project._id}
 							_id={project._id}
 							image={project.image}
 							name={project.name}
