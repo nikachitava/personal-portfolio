@@ -1,4 +1,5 @@
 import "animate.css";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
 	return (
@@ -6,7 +7,9 @@ const HeroSection = () => {
 			<h1 className="font-bold font-Poppins text-heading dark:text-[#D9D9D9] text-6xl leading-[70px]">
 				Hi 👋, <br />
 				My name is <br />
-				<span className="text-gradient">nika chitava</span>
+				<Link to={"/admin"}>
+					<span className="text-gradient">nika chitava</span>
+				</Link>
 				<br /> I'm Front-end Developer
 			</h1>
 			<img

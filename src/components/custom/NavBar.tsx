@@ -45,11 +45,6 @@ const NavBar = () => {
 						)}
 					</li>
 				</ul>
-				<Link to="/admin">
-					<h1 className="font-Poppins text-2xl font-bold">
-						Goto admin dashboard
-					</h1>
-				</Link>
 			</nav>
 		</header>
 	);
