@@ -15,6 +15,7 @@ const NavBar = () => {
 					NC18
 				</h1>
 			</Link>
+
 			<nav className="hidden lg:block">
 				<ul className="flex items-center gap-16 font-DMSans">
 					<li className="font-medium text-xl text-darkContent dark:text-lightContent">
@@ -44,6 +45,11 @@ const NavBar = () => {
 						)}
 					</li>
 				</ul>
+				<Link to="/admin">
+					<h1 className="font-Poppins text-2xl font-bold">
+						Goto admin dashboard
+					</h1>
+				</Link>
 			</nav>
 		</header>
 	);
