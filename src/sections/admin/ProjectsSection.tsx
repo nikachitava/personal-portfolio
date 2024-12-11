@@ -37,7 +37,7 @@ const ProjectsSection = () => {
 					<MdAdd size={24} /> Create New Project
 				</Button>
 			</div>
-			<div className="flex flex-wrap justify-between gap-10">
+			<div className="flex flex-wrap  gap-10">
 				{projects ? (
 					projects.map((project) => (
 						<ProjectCard

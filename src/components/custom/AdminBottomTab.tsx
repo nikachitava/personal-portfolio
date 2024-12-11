@@ -15,7 +15,7 @@ const AdminBottomTab = () => {
 	const { adminLogOut } = useContext(adminAuthContext);
 
 	return (
-		<div className="lg:hidden flex items-center justify-center">
+		<div className="lg:hidden flex items-center justify-center z-10">
 			<div className="min-w-[70%] fixed py-5 px-10 bg-lightContent dark:dark-white rounded-3xl shadow-2xl bottom-5 animate__animated animate__zoomIn">
 				<ul className="font-DMSans  flex items-center justify-between gap-5">
 					<li onClick={() => changeActiveMenu("projects")}>
