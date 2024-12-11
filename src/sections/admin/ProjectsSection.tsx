@@ -1,30 +1,18 @@
 import ProjectCard from "@/components/custom/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { ModalContext } from "@/context/ModalContext";
-import { IProjectCardProps } from "@/types/IProjectCardProps";
-import { useAxios } from "@/utils/useAxios";
-import { useContext, useEffect, useState } from "react";
+
+import useProjects from "@/utils/useProjects";
+import { useContext } from "react";
 import { MdAdd } from "react-icons/md";
 
 const ProjectsSection = () => {
 	const { toggleModal } = useContext(ModalContext);
 
-	const [projects, setProjects] = useState<IProjectCardProps[] | null>(null);
+	const { projects, isLoading, error } = useProjects();
 
-	const fetchProjects = async () => {
-		try {
-			const fetchedProjects = await useAxios.get("/projects");
-			setProjects(fetchedProjects.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	console.log(projects);
-
-	useEffect(() => {
-		fetchProjects();
-	}, []);
+	if (isLoading) return <div>Loading...</div>;
+	if (error) return <div>Error fetching projects. Please try again.</div>;
 
 	return (
 		<section className="relative space-y-28 animate__animated animate__fadeInDown mt-10">

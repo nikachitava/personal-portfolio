@@ -1,24 +1,30 @@
-import { useState, useEffect } from "react";
 import { useAxios } from "@/utils/useAxios";
 import { IProjectCardProps } from "@/types/IProjectCardProps";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+
+const fetchProjects = async (): Promise<IProjectCardProps[]> => {
+	const response = await useAxios.get("/projects");
+	return response.data;
+};
 
 const useProjects = () => {
-	const [projects, setProjects] = useState<IProjectCardProps[] | null>(null);
+	const queryClient = useQueryClient();
 
-	const fetchProjects = async () => {
-		try {
-			const fetchedProjects = await useAxios.get("/projects");
-			setProjects(fetchedProjects.data);
-		} catch (error) {
-			console.error("Error fetching projects:", error);
-		}
+	const {
+		data: projects,
+		isLoading,
+		error,
+	} = useQuery<IProjectCardProps[], Error>({
+		queryKey: ["projects"],
+		queryFn: fetchProjects,
+	});
+
+	// Utility to refetch projects
+	const refetchProjects = () => {
+		queryClient.invalidateQueries({ queryKey: ["projects"] });
 	};
 
-	useEffect(() => {
-		fetchProjects();
-	}, []);
-
-	return { projects, fetchProjects };
+	return { projects, isLoading, error, refetchProjects };
 };
 
 export default useProjects;

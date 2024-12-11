@@ -14,35 +14,47 @@ import AuthAdminForm from "./components/custom/AuthAdminForm";
 import ToggleDarkModeProvider from "./context/ToggleDarkModeContext";
 import ProjectsPage from "./pages/ProjectsPage";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<ToggleDarkModeProvider>
-			<BrowserRouter>
-				<Routes>
-					{/* Root  Layout */}
-					<Route element={<RootLayout />}>
-						<Route path="/" element={<HomePage />} />
-						<Route path="about" element={<AboutPage />} />
-						<Route path="tech-stack" element={<TechStackPage />} />
-						<Route path="projects" element={<ProjectsPage />} />
-						<Route path="contact" element={<ContactPage />} />
-					</Route>
+		<QueryClientProvider client={queryClient}>
+			<ToggleDarkModeProvider>
+				<BrowserRouter>
+					<Routes>
+						{/* Root  Layout */}
+						<Route element={<RootLayout />}>
+							<Route path="/" element={<HomePage />} />
+							<Route path="about" element={<AboutPage />} />
+							<Route
+								path="tech-stack"
+								element={<TechStackPage />}
+							/>
+							<Route path="projects" element={<ProjectsPage />} />
+							<Route path="contact" element={<ContactPage />} />
+						</Route>
 
-					{/* Admin Dashboard Layout */}
-					<Route element={<AdminDashboardLayout />}>
-						<Route path="/admin-auth" element={<AuthAdminForm />} />
-						<Route
-							path="admin"
-							element={
-								<AdminProtectedRoute>
-									<HomePageDashboard />
-								</AdminProtectedRoute>
-							}
-						></Route>
-					</Route>
-					<Route path="*" element={<h1>Page not found</h1>} />
-				</Routes>
-			</BrowserRouter>
-		</ToggleDarkModeProvider>
+						{/* Admin Dashboard Layout */}
+						<Route element={<AdminDashboardLayout />}>
+							<Route
+								path="/admin-auth"
+								element={<AuthAdminForm />}
+							/>
+							<Route
+								path="admin"
+								element={
+									<AdminProtectedRoute>
+										<HomePageDashboard />
+									</AdminProtectedRoute>
+								}
+							></Route>
+						</Route>
+						<Route path="*" element={<h1>Page not found</h1>} />
+					</Routes>
+				</BrowserRouter>
+			</ToggleDarkModeProvider>
+		</QueryClientProvider>
 	</StrictMode>
 );
