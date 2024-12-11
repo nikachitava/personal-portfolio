@@ -15,6 +15,7 @@ import ToggleDarkModeProvider from "./context/ToggleDarkModeContext";
 import ProjectsPage from "./pages/ProjectsPage";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SingleProject from "./pages/SingleProject";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,10 @@ createRoot(document.getElementById("root")!).render(
 							/>
 							<Route path="projects" element={<ProjectsPage />} />
 							<Route path="contact" element={<ContactPage />} />
+							<Route
+								path="project/:id"
+								element={<SingleProject />}
+							/>
 						</Route>
 
 						{/* Admin Dashboard Layout */}

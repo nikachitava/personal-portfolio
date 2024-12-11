@@ -1,6 +1,6 @@
 export interface IProjectCardProps {
 	_id?: string;
-	image: string;
+	image: string[];
 	name: string;
 	description: string;
 	tech_stack: string[];
