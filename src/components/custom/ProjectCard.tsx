@@ -51,7 +51,10 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 					{name}
 				</h1>
 				<p className="font-Poppins text-lg text-darkContent dark:text-solidHeadingDarkMode break-words">
-					{description}
+					{description.slice(0, 150)} ....{" "}
+					<span className="font-bold underline cursor-pointer">
+						READ MODE
+					</span>
 				</p>
 				<p className="font-Poppins text-heading dark:text-solidHeadingDarkMode">
 					Tech Stack:{" "}
