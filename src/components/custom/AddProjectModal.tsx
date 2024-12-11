@@ -12,6 +12,8 @@ import CustomTextArea from "./CustomTextArea";
 import uploadImageToFirebase from "@/firebase/uploadImageToFirebase";
 import { useNavigate } from "react-router-dom";
 import { useAxios } from "@/utils/useAxios";
+import useProjects from "@/utils/useProjects";
+import LoaderSpinner from "./LoaderSpinner";
 
 const formSchema = z.object({
 	name: z.string().min(2, {
@@ -40,6 +42,8 @@ const AddProjectModal = () => {
 	const { toggleModal } = useContext(ModalContext);
 	const [imagesPreview, setImagesPreview] = useState<string[] | null>(null);
 
+	const { refetchProjects } = useProjects();
+
 	const navigate = useNavigate();
 
 	const handleImagesChange = (files: FileList | null) => {
@@ -64,6 +68,8 @@ const AddProjectModal = () => {
 		},
 	});
 
+	const isSubmitting = form.formState.isSubmitting;
+
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
 			const imagesUrl: string[] = [];
@@ -85,6 +91,7 @@ const AddProjectModal = () => {
 			};
 
 			await useAxios.post("/projects/addproject", payload);
+			refetchProjects();
 			toggleModal();
 			navigate("/admin");
 		} catch (error) {
@@ -165,7 +172,7 @@ const AddProjectModal = () => {
 								)}
 							</div>
 							<Button type="submit" className="w-full h-12">
-								Submit
+								{isSubmitting ? <LoaderSpinner /> : "Submit"}
 							</Button>
 						</form>
 					</Form>

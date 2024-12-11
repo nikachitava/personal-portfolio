@@ -1,3 +1,4 @@
+import LoaderSpinner from "@/components/custom/LoaderSpinner";
 import ProjectCard from "@/components/custom/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { ModalContext } from "@/context/ModalContext";
@@ -11,7 +12,16 @@ const ProjectsSection = () => {
 
 	const { projects, isLoading, error } = useProjects();
 
-	if (isLoading) return <div>Loading...</div>;
+	if (isLoading) return <LoaderSpinner />;
+	if (isLoading) {
+		return (
+			<div className="flex justify-center items-center h-screen bg-gray-900">
+				<h1 className="text-4xl font-bold text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text animate-gradient">
+					Loading...
+				</h1>
+			</div>
+		);
+	}
 	if (error) return <div>Error fetching projects. Please try again.</div>;
 
 	return (
