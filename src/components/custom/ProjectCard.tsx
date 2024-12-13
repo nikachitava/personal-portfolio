@@ -11,7 +11,6 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 	image,
 	name,
 	description,
-	tech_stack,
 	github_link,
 	live_link,
 }) => {
@@ -31,7 +30,7 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 	return (
 		<div
 			key={_id}
-			className="w-[375px] rounded-[20px] bg-white dark:bg-[#363636] overflow-hidden shadow-custom-blur relative"
+			className="min-w-[350px] max-w-[375px] rounded-[20px] bg-white dark:bg-[#363636] overflow-hidden shadow-custom-blur relative"
 		>
 			{isAuthenticated && _id && (
 				<div
