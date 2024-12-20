@@ -19,11 +19,11 @@ const SingleProject = () => {
 	const onSubmit: SubmitHandler<IProjectEditForm> = async (data) => {
 		if (isEditMode) return;
 		try {
-			const response = await useAxios.patch(
+			await useAxios.patch(
 				`/projects/updateproject/${project?._id}`,
 				data
 			);
-			console.log(response);
+			fetchProjectData();
 		} catch (error) {
 			console.log(error);
 		}
