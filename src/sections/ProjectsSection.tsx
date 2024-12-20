@@ -1,16 +1,11 @@
 import useProjects from "@/utils/useProjects";
 import ProjectCard from "../components/custom/ProjectCard";
-import { motion } from "framer-motion";
 
 const ProjectsSection = () => {
 	const { projects } = useProjects();
 
 	return (
-		<motion.section
-			initial={{ opacity: 0, y: 50 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5 }}
-		>
+		<section>
 			<h1 className="text-center text-heading font-Poppins font-bold text-5xl leading-6 mb-10 dark:text-solidHeadingDarkMode">
 				Projects
 			</h1>
@@ -37,7 +32,7 @@ const ProjectsSection = () => {
 					)}
 				</div>
 			</div>
-		</motion.section>
+		</section>
 	);
 };
 
