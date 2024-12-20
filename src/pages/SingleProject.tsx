@@ -101,9 +101,12 @@ const SingleProject = () => {
 									className="w-full h-[200px] bg-darkContent text-white rounded-md p-2 outline-none shadow-lg"
 								/>
 							) : (
-								<p className="text-lg text-heading dark:text-solidHeadingDarkMode">
-									{project.description}
-								</p>
+								<p
+									className="text-lg text-heading dark:text-solidHeadingDarkMode whitespace-pre-wrap"
+									dangerouslySetInnerHTML={{
+										__html: project.description,
+									}}
+								/>
 							)}
 							<div className="flex items-center gap-10">
 								<div className="flex items-center gap-3">
