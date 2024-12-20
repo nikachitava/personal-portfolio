@@ -9,8 +9,8 @@ import { adminAuthContext } from "@/context/adminAuthContext";
 import { useContext } from "react";
 
 const formSchema = z.object({
-	email: z.string().min(2, {
-		message: "Username must be at least 2 characters.",
+	email: z.string().min(1, {
+		message: "Email is required field",
 	}),
 	password: z
 		.string()
@@ -30,16 +30,21 @@ const AuthAdminForm = () => {
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
-			if (!isAuthenticated)
+			if (!isAuthenticated) {
 				await authAdmin(values.email, values.password);
+			}
 		} catch (error: any) {
-			if (error.response.status === 401) {
-				form.setError("password", {
-					type: "server",
-					message: error.response.data.message,
+			if (error.message === "INVALID_EMAIL") {
+				form.setError("email", {
+					type: "manual",
+					message: "Enter correct email",
 				});
-			} else {
-				console.error("Unexpected error:", error);
+			}
+			if (error.message === "INVALID_PASSWORD") {
+				form.setError("password", {
+					type: "manual",
+					message: "Enter valid password",
+				});
 			}
 		}
 	};

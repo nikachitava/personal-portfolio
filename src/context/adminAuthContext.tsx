@@ -30,13 +30,23 @@ const AdminAuthContextProvider: React.FC<{ children: ReactNode }> = ({
 			});
 
 			const { token } = response.data;
+
 			if (response.status === 200) {
 				localStorage.setItem("authToken", token);
 				setIsAuthenticated(true);
 				navigate("/admin");
 			}
-		} catch (error) {
-			console.log(error);
+		} catch (error: any) {
+			if (error.response.status === 401) {
+				const errorType = error.response.data.errorType;
+
+				if (errorType === "INVALID_EMAIL") {
+					throw new Error(errorType);
+				} else if (errorType === "INVALID_PASSWORD") {
+					throw new Error(errorType);
+				}
+			}
+			throw error;
 		}
 	};
 
