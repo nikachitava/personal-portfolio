@@ -1,8 +1,14 @@
 import DownloadButton from "../components/custom/DownloadButton";
+import { motion } from "framer-motion";
 
 const AboutSection = () => {
 	return (
-		<section className="min-h-screen space-y-5">
+		<motion.section
+			initial={{ opacity: 0, y: 50 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.5 }}
+			className="min-h-screen space-y-5"
+		>
 			<div className="flex items-end justify-between">
 				<div>
 					<h1 className="font-Poppins text-3xl text-heading dark:text-solidHeadingDarkMode font-bold">
@@ -282,7 +288,7 @@ const AboutSection = () => {
 					/>
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
