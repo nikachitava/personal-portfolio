@@ -114,6 +114,7 @@ const SingleProject = () => {
 									{isEditMode ? (
 										<input
 											type="text"
+											defaultValue={project.live_link}
 											{...register("live_link")}
 											placeholder="Place new link here"
 											className="bg-darkContent text-white h-12 rounded-md p-2 outline-none"
@@ -134,6 +135,7 @@ const SingleProject = () => {
 									{isEditMode ? (
 										<input
 											type="text"
+											defaultValue={project.github_link}
 											{...register("github_link")}
 											placeholder="Place new link here"
 											className="bg-darkContent text-white h-12 rounded-md p-2 outline-none"
