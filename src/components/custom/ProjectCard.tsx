@@ -10,7 +10,6 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 	_id,
 	image,
 	name,
-	description,
 	github_link,
 	live_link,
 }) => {
@@ -50,12 +49,6 @@ const ProjectCard: React.FC<IProjectCardProps> = ({
 					<h1 className="font-Poppins text-2xl mb-3 font-medium text-black dark:text-solidHeadingDarkMode">
 						{name}
 					</h1>
-					<p className="font-Poppins text-lg mb-3 text-darkContent dark:text-solidHeadingDarkMode break-words">
-						{description.slice(0, 150)} ....{" "}
-						<span className="font-bold underline cursor-pointer">
-							READ MODE
-						</span>
-					</p>
 					<p className="font-Poppins underline underline-offset-2  text-heading dark:text-solidHeadingDarkMode">
 						Click to get more information
 					</p>
